@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>bid-details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container .bid-detail {
+            height: 273px;
+            text-align: center;
+            vertical-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            {% if detail and result%}
+            <div class="col">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ProductID</th>
+                            <th scope="col">product</th>
+                            <th scope="col">auction_started</th>
+                            <th scope="col">Auction Expiration</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in result %}
+                        <tr class="product_details">
+                            <th scope="row">#1765028{{item.id}}</th>
+                            <td><img src="{{item.img.url}}" alt=""></td>
+                            <td>{{item.auction_start}}</td>
+                            <td>{{item.auction_expiration}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th scope="col">BidID</th>
+                            <th scope="col">Bid applied time</th>
+                            <th scope="col">Your Bid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in detail %}
+                        <tr class="bid-detail">
+                            <th scope="row">#1700128{{item.pk}}</th>
+                            <td>{{item.bid_date}}</td>
+                            <td>{{item.current_price}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            {%else%}
+            <h4>You've not submitted bid Yet</h4>
+            {%endif%}
+        </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

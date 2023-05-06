@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Registration</title>
+</head>
+
+<body>
+    <div class="registration">
+        <div class="container">
+            {%if messages%}
+            {% for x in messages%}
+            <script>alert("{{x}}")</script>
+            {%endfor%}
+            {%endif%}
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <header class="card-header">
+                            <h4 class="card-title mt-2">Sign up Form</h4>
+                        </header>
+                        <article class="card-body">
+                            <form action="register" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>First name </label>
+                                        <input type="text" class="form-control" placeholder="" name='fname' required>
+                                        <label>Last name</label>
+                                        <input type="text" class="form-control" placeholder=" " name='lname' required>
+                                        <label>Username</label>
+                                        <input type="text" class="form-control" placeholder=" " name='uname' required>
+                                        <label>Email address</label>
+                                        <input type="email" class="form-control" placeholder="" name='mail' required>
+                                        <label>Mobile Number</label>
+                                        <input type="text" class="form-control" pattern="[9]{1}[8]{}[0-9]{8}"
+                                            name='phone' required>
+                                    </div> <!-- form-group end.// -->
+                                </div> <!-- form-row end.// -->
+                                <div class="form-group">
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" value="male">
+                                        <span class="form-check-label"> Male </span>
+                                    </label>
+                                    <label class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="gender" value="female">
+                                        <span class="form-check-label"> Female</span>
+                                    </label>
+                                </div> <!-- form-group end.// -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label>Select your Country</label>
+                                        <select id="inputState" class="form-control" name='country'>
+                                            <option selected>Nepal</option>
+                                            <option>China</option>
+                                            <option>United States</option>
+                                            <option>India</option>
+                                            <option>Afganistan</option>
+                                            <option>Russia</option>
+                                            <option>United Kingdom</option>
+                                        </select>
+                                        <label>Your Address</label>
+                                        <input type="text" class="form-control" placeholder=" " name='add'>
+                                    </div> <!-- form-group end.// -->
+                                </div> <!-- form-row.// -->
+                                <div class="form-group">
+                                    <label>Create password</label>
+                                    <input class="form-control" type="password" name='psw1'>
+                                    <label>confirm password</label>
+                                    <input class="form-control" type="password" name='psw2'>
+                                </div> <!-- form-group end.// -->
+                                <div class="form-group">
+                                    <div class="form-group">
+                                        <label>Choose Document ID Type</label>
+                                        <select id="doc-type" class="form-control" name='cat'>
+                                            <option>Citizenship</option>
+                                            <option>Passport</option>
+                                            <option>Driving License</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="doc">Attach your Document</label>
+                                        <input type="file" multiple id='doc' name='mydoc' accept="image/*"
+                                            onchange="readURL(this);" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                                </div> <!-- form-group// -->
+                            </form>
+                        </article> <!-- card-body end .// -->
+                        <div class="border-top card-body text-center">Have an account? <a href="login">Log In</a></div>
+                    </div> <!-- card.// -->
+                </div> <!-- col.//-->
+
+            </div> <!-- row.//-->
+        </div>
+        <!--container end.//-->
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

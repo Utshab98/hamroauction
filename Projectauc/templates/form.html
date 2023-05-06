@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <title>profile</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    .container{
+        text-align:center;
+    }
+    .container .custom-file{
+        margin:100px auto;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form action="update-profile" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="custom-file">
+                        <input type="file" name='mydoc' class="custom-file-input" id="customFile" accept="image/*" onchange="readURL(this);" required>
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                        <br>
+                        <div class="form-group">
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block">Upload</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

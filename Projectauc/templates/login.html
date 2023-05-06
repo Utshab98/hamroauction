@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Registration</title>
+</head>
+
+<body>
+
+    <div class="container">
+        {%if messages%}
+            {% for x in messages%}
+                <script>alert("{{x}}")</script>
+            {%endfor%}
+            {%endif%}
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <header class="card-header">
+                    </header>
+                    <article class="card-body">
+                        <form action="login" method="post">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control" placeholder="username" name='username' required>
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" placeholder="password" name='pswd' required>
+                                </div> <!-- form-group end.// -->
+                            </div> <!-- form-row end.// -->
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </div> <!-- form-group// -->
+                        </form>
+                    </article> <!-- card-body end .// -->
+                    <div class="border-top card-body text-center">Don't Have an account? <a
+                            href="register">Register Now</a></div>
+                </div> <!-- card.// -->
+            </div> <!-- col.//-->
+        </div> <!-- row.//-->
+        <!--container end.//-->
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
